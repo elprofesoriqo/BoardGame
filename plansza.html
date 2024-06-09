@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igor Jankowski plansza</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .legend {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generowanie planszy</h1>
+
+    <form method="POST" action="main.php">
+        <label for="x">Liczba kolumn (x):</label>
+        <input type="number" name="x" id="x" min="10" max="50" required>
+        <br>
+        <label for="y">Liczba wierszy (y):</label>
+        <input type="number" name="y" id="y" min="10" max="50" required>
+        <br>
+        <input type="submit" value="Generuj planszę">
+    </form>
+
+
+    <script>
+        var pola = document.getElementsByTagName('td');
+        for (var i = 0; i < pola.length; i++) {
+            pola[i].addEventListener('click', function() {
+                var teren = this.dataset.teren;
+                var energia = this.dataset.energia;
+                var oswietlenie = this.dataset.oswietlenie;
+                console.log('Teren:', teren);
+                console.log('Energia:', energia);
+                console.log('Oświetlenie:', oswietlenie);
+            });
+        }
+    </script>
+</body>
+</html>
